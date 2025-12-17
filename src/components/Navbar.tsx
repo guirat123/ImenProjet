@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, ShoppingCart } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { useCart } from '@/context/CartContext'; // Import useCart
+import { useCart } from '@/context/CartContext';
 
-const questionnaireLink = "https://docs.google.com/forms/d/e/1FAIpQLSdVmNTt4rd7P962XuBAZ9DpkYCQOGqxmBuJ-vKw60YykVyHbw/viewform?fbclid=IwY2xjawOscw1leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA80Mzc2MjYzMTY5NzM3ODgAAR6Ew13-jhPKUxgiXwHtT6ZVITxRfN16MG5PsZJhnDdi2p9RXt0aBOePADQPbA_aem_YxKH51V4bD5QzCraCA_Axw";
+const questionnaireLink = "https://docs.google.com/forms/d/e/1FAIpQLSdVmNTt4rd7P962XuBAZ9DpkYCQOGxqmBuJ-vKw60YykVyHbw/viewform?fbclid=IwY2xjawOscw1leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA80Mzc2MjYzMTY5NzM3ODgAAR6Ew13-jhPKUxgiXwHtT6ZVITxRfN16MG5PsZJhnDdi2p9RXt0aBOePADQPbA_aem_YxKH5V4bD5QzCraCA_Axw";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const isMobile = useIsMobile();
-  const { getTotalItems } = useCart(); // Get total items from cart context
+  const { getTotalItems } = useCart();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -53,8 +53,8 @@ const Navbar = () => {
             <Link to="/boissons-healthy" className="text-gray-700 hover:text-green-700 font-medium">
               Boissons Healthy
             </Link>
-            <Link to="/nutrition" className="text-gray-700 hover:text-green-700 font-medium">
-              Nutrition
+            <Link to="/abonnement" className="text-gray-700 hover:text-green-700 font-medium"> {/* Changed link to /abonnement */}
+              Abonnement {/* Changed text to Abonnement */}
             </Link>
             <a href={questionnaireLink} target="_blank" rel="noopener noreferrer">
               <Button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold">
@@ -88,8 +88,8 @@ const Navbar = () => {
             <Link to="/boissons-healthy" className="text-gray-700 hover:text-green-700 font-medium" onClick={toggleMenu}>
               Boissons Healthy
             </Link>
-            <Link to="/nutrition" className="text-gray-700 hover:text-green-700 font-medium" onClick={toggleMenu}>
-              Nutrition
+            <Link to="/abonnement" className="text-gray-700 hover:text-green-700 font-medium" onClick={toggleMenu}> {/* Changed link to /abonnement */}
+              Abonnement {/* Changed text to Abonnement */}
             </Link>
             <a href={questionnaireLink} target="_blank" rel="noopener noreferrer" className="w-full">
               <Button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold w-full">

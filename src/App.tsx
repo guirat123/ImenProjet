@@ -7,11 +7,11 @@ import Layout from "./components/Layout";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import BoxesPage from "./pages/BoxesPage";
-import NutritionPage from "./pages/NutritionPage";
-import CartPage from "./pages/CartPage"; // Import CartPage
-import BoissonsHealthyPage from "./pages/BoissonsHealthyPage"; // Import BoissonsHealthyPage
+import AbonnementPage from "./pages/AbonnementPage"; // Import AbonnementPage
+import CartPage from "./pages/CartPage";
+import BoissonsHealthyPage from "./pages/BoissonsHealthyPage";
 import NotFound from "./pages/NotFound";
-import { CartProvider } from "./context/CartContext"; // Import CartProvider
+import { CartProvider } from "./context/CartContext";
 
 const queryClient = new QueryClient();
 
@@ -21,15 +21,15 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <CartProvider> {/* Wrap Layout with CartProvider */}
+        <CartProvider>
           <Layout>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/boxes" element={<BoxesPage />} />
-              <Route path="/nutrition" element={<NutritionPage />} />
-              <Route path="/cart" element={<CartPage />} /> {/* Add CartPage route */}
-              <Route path="/boissons-healthy" element={<BoissonsHealthyPage />} /> {/* Add BoissonsHealthyPage route */}
+              <Route path="/abonnement" element={<AbonnementPage />} /> {/* Add AbonnementPage route */}
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/boissons-healthy" element={<BoissonsHealthyPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
