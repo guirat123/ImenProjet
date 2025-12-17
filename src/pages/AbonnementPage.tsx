@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { CheckCircle, DollarSign, Percent, ShoppingCart } from 'lucide-react';
+import { CheckCircle, DollarSign, Percent, ShoppingCart, CupSoda, Leaf } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/context/CartContext';
 
@@ -46,6 +46,33 @@ const AbonnementPage = () => {
       reduction: "10–12 %",
       color: "border-red-500",
     },
+  ];
+
+  const drinkOptions = [
+    {
+      id: "boisson-classique",
+      title: "Boisson classique",
+      description: "Ajoutez une boisson rafraîchissante à votre abonnement.",
+      icon: CupSoda,
+      color: "border-blue-500",
+      options: [
+        { type: "Quotidien", price: "2 DT / jour", numericPrice: 2 },
+        { type: "Hebdomadaire", price: "10 DT / semaine", numericPrice: 10 },
+        { type: "Mensuel", price: "35–40 DT / mois", numericPrice: 35 },
+      ]
+    },
+    {
+      id: "smoothie-protein-drink",
+      title: "Smoothie / protein drink",
+      description: "Boostez votre énergie avec un smoothie ou une boisson protéinée.",
+      icon: Leaf,
+      color: "border-purple-500",
+      options: [
+        { type: "Quotidien", price: "4 DT / jour", numericPrice: 4 },
+        { type: "Hebdomadaire", price: "18–20 DT / semaine", numericPrice: 18 },
+        { type: "Mensuel", price: "70–75 DT / mois", numericPrice: 70 },
+      ]
+    }
   ];
 
   return (
@@ -117,6 +144,61 @@ const AbonnementPage = () => {
               </div>
             </section>
           ))}
+
+          {/* New section for Drink Options */}
+          <section className="mb-12">
+            <Card className="p-6 md:p-10 shadow-lg border-l-8 border-green-700 mb-8">
+              <CardHeader className="flex flex-row items-center space-x-4 p-0 mb-4">
+                <CupSoda className="text-green-700" size={36} />
+                <CardTitle className="text-2xl md:text-3xl font-bold text-green-700">
+                  OPTIONS BOISSONS (ABONNEMENT)
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-lg text-gray-700 leading-relaxed p-0">
+                <p>Personnalisez votre abonnement avec nos options de boissons saines.</p>
+              </CardContent>
+            </Card>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {drinkOptions.map((drinkCategory) => (
+                <Card key={drinkCategory.id} className={`p-6 shadow-md hover:shadow-lg transition-shadow duration-300 border-t-4 ${drinkCategory.color}`}>
+                  <CardHeader className="p-0 mb-4">
+                    <div className="flex items-center mb-2">
+                      <drinkCategory.icon className={`text-${drinkCategory.color.split('-')[1]}-500 mr-3`} size={24} />
+                      <CardTitle className="text-xl font-bold text-gray-800">{drinkCategory.title}</CardTitle>
+                    </div>
+                    <CardDescription className="text-gray-600">
+                      {drinkCategory.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <div className="space-y-4 mt-6">
+                      {drinkCategory.options.map((option, idx) => {
+                        const optionId = `${drinkCategory.id}-${option.type.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
+                        const optionTitle = `${drinkCategory.title} - ${option.type}`;
+                        const optionPrice = option.numericPrice; // Use the pre-defined numeric price
+
+                        return (
+                          <div key={idx} className="flex items-center justify-between text-lg">
+                            <span className="font-semibold flex items-center">
+                              <CheckCircle className="h-5 w-5 text-green-500 mr-2" /> {option.type}
+                            </span>
+                            <span className="text-green-800 font-bold">{option.price}</span>
+                            <Button
+                              className="ml-4 bg-green-600 hover:bg-green-700 text-white text-sm py-2 px-4"
+                              onClick={() => addToCart({ id: optionId, title: optionTitle, price: optionPrice })}
+                            >
+                              <ShoppingCart className="mr-2 h-4 w-4" /> Ajouter
+                            </Button>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
         </div>
       </div>
     </div>
