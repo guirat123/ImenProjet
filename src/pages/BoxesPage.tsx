@@ -20,12 +20,27 @@ interface Gamme {
   description: string;
   icon: React.ElementType;
   color: string;
-  entryMenu?: BoxDetail; // Special entry menu for Gamme 1
   boxes: BoxDetail[];
 }
 
 const BoxesPage = () => {
   const { addToCart } = useCart();
+
+  const placeholderImage = "/public/placeholder.svg"; // Generic placeholder image
+
+  // Extrait le menu d'entrée pour l'afficher séparément en haut
+  const entryMenuData: BoxDetail = {
+    id: 'gamme1-entry-menu',
+    title: "Menu d’entrée (hors box)",
+    price: 6.50,
+    menu: [
+      "Omelette & pommes de terre vapeur",
+      "Omelette aux œufs",
+      "Salade verte",
+      "Pommes de terre vapeur",
+      "Banane"
+    ]
+  };
 
   const gammes: Gamme[] = [
     {
@@ -35,18 +50,6 @@ const BoxesPage = () => {
       description: "Portions simples, nutritives et économiques pour une alimentation équilibrée au quotidien.",
       icon: Salad,
       color: "border-green-500",
-      entryMenu: {
-        id: 'gamme1-entry-menu',
-        title: "Menu d’entrée (hors box)",
-        price: 6.50,
-        menu: [
-          "Omelette & pommes de terre vapeur",
-          "Omelette aux œufs",
-          "Salade verte",
-          "Pommes de terre vapeur",
-          "Banane"
-        ]
-      },
       boxes: [
         {
           id: 'gamme1-box1',
@@ -199,7 +202,7 @@ const BoxesPage = () => {
       priceRange: "+12 DT",
       description: "Produits nobles et recettes modernes pour une expérience culinaire raffinée.",
       icon: Sparkles,
-      color: "border-red-500", // Using red for premium, can be changed
+      color: "border-red-500",
       boxes: [
         {
           id: 'gamme3-box13',
@@ -271,8 +274,6 @@ const BoxesPage = () => {
     },
   ];
 
-  const placeholderImage = "/public/placeholder.svg"; // Generic placeholder image
-
   return (
     <div className="bg-gray-50 text-gray-800 py-12 md:py-16">
       <div className="container mx-auto px-4">
@@ -283,6 +284,36 @@ const BoxesPage = () => {
           Chaque gamme est conçue pour répondre à des besoins spécifiques, avec des repas équilibrés, savoureux et pratiques.
         </p>
 
+        {/* Menu d'entrée (hors box) - Affiché en haut */}
+        <section className="mb-20">
+          <Card key={entryMenuData.id} className="flex flex-col p-6 shadow-md hover:shadow-lg transition-shadow duration-300 border-t-4 border-blue-400">
+            <CardHeader className="p-0 mb-4">
+              <div className="flex items-center mb-2">
+                <ShoppingCart className="text-blue-400 mr-3" size={24} />
+                <CardTitle className="text-xl font-bold text-gray-800">{entryMenuData.title}</CardTitle>
+              </div>
+              <CardDescription className="text-gray-600 text-base">
+                Un menu d'entrée spécial, parfait pour un repas léger.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="p-0">
+              <ul className="list-disc list-inside text-gray-700 space-y-1 mb-4">
+                {entryMenuData.menu.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+              <p className="text-xl font-bold text-green-700 mt-4">{entryMenuData.price.toFixed(2)} TND</p>
+              <Button
+                className="mt-4 bg-green-600 hover:bg-green-700 text-white"
+                onClick={() => addToCart({ ...entryMenuData, image: placeholderImage })}
+              >
+                <ShoppingCart className="mr-2 h-4 w-4" /> Ajouter au panier
+              </Button>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Reste des gammes */}
         {gammes.map((gamme) => (
           <section key={gamme.id} className="mb-20">
             <Card className={`p-6 md:p-10 shadow-lg border-l-8 ${gamme.color} mb-10`}>
@@ -327,34 +358,6 @@ const BoxesPage = () => {
                 </Card>
               ))}
             </div>
-
-            {gamme.entryMenu && (
-              <Card key={gamme.entryMenu.id} className="flex flex-col p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-8 border-t-4 border-blue-400">
-                <CardHeader className="p-0 mb-4">
-                  <div className="flex items-center mb-2">
-                    <ShoppingCart className="text-blue-400 mr-3" size={24} />
-                    <CardTitle className="text-xl font-bold text-gray-800">{gamme.entryMenu.title}</CardTitle>
-                  </div>
-                  <CardDescription className="text-gray-600 text-base">
-                    Un menu d'entrée spécial, parfait pour un repas léger.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="p-0">
-                  <ul className="list-disc list-inside text-gray-700 space-y-1 mb-4">
-                    {gamme.entryMenu.menu.map((item, index) => (
-                      <li key={index}>{item}</li>
-                    ))}
-                  </ul>
-                  <p className="text-xl font-bold text-green-700 mt-4">{gamme.entryMenu.price.toFixed(2)} TND</p>
-                  <Button
-                    className="mt-4 bg-green-600 hover:bg-green-700 text-white"
-                    onClick={() => addToCart({ ...gamme.entryMenu!, image: placeholderImage })}
-                  >
-                    <ShoppingCart className="mr-2 h-4 w-4" /> Ajouter au panier
-                  </Button>
-                </CardContent>
-              </Card>
-            )}
           </section>
         ))}
       </div>
