@@ -4,7 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Utensils, Clock, Wallet, GraduationCap, CalendarDays, Timer } from 'lucide-react';
+import { Utensils, Clock, Wallet, GraduationCap, CalendarDays, Timer, CupSoda, Gift } from 'lucide-react';
 
 const questionnaireLink = "https://docs.google.com/forms/d/e/1FAIpQLSdVmNTt4rd7P962XuBAZ9DpkYCQOGqxmBuJ-vKw60YykVyHbw/viewform?fbclid=IwY2xjawOscw1leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA80Mzc2MjYzMTY5NzM3ODgAAR6Ew13-jhPKUxgiXwHtT6ZVITxRfN16MG5PsZJhnDdi2p9RXt0aBOePADQPbA_aem_YxKH51V4bD5QdCraCA_Axw";
 
@@ -96,6 +96,67 @@ const HomePage = () => {
                 <CardDescription className="text-gray-600">
                   Livraison facile et points de collecte pratiques directement sur votre campus.
                 </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Explore More Section */}
+      <section className="py-16 bg-gray-100">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-green-700 text-center mb-12">
+            Explorez Plus avec EAT HEALTHY BOX
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="text-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-blue-500">
+              <CardHeader className="flex flex-col items-center">
+                <CalendarDays className="text-blue-500 mb-4" size={48} />
+                <CardTitle className="text-xl font-semibold mb-2">Nos Abonnements</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-600 mb-4">
+                  Simplifiez votre quotidien avec nos formules d'abonnement flexibles et économiques.
+                </CardDescription>
+                <Link to="/abonnement">
+                  <Button className="bg-blue-500 hover:bg-blue-600 text-white w-full">
+                    Découvrir les abonnements
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-purple-500">
+              <CardHeader className="flex flex-col items-center">
+                <CupSoda className="text-purple-500 mb-4" size={48} />
+                <CardTitle className="text-xl font-semibold mb-2">Boissons Healthy</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-600 mb-4">
+                  Accompagnez vos repas avec notre sélection de boissons saines et rafraîchissantes.
+                </CardDescription>
+                <Link to="/boissons-healthy">
+                  <Button className="bg-purple-500 hover:bg-purple-600 text-white w-full">
+                    Voir les boissons
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-red-500">
+              <CardHeader className="flex flex-col items-center">
+                <Gift className="text-red-500 mb-4" size={48} />
+                <CardTitle className="text-xl font-semibold mb-2">Nos Offres Exclusives</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-600 mb-4">
+                  Profitez de nos promotions et avantages spéciaux pour une expérience encore meilleure.
+                </CardDescription>
+                <Link to="/offers">
+                  <Button className="bg-red-500 hover:bg-red-600 text-white w-full">
+                    Découvrir les offres
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           </div>
