@@ -56,7 +56,6 @@ const AbonnementPage = () => {
       icon: CupSoda,
       color: "border-blue-500",
       options: [
-        { type: "Quotidien", price: "2 DT / jour", numericPrice: 2 },
         { type: "Hebdomadaire", price: "10 DT / semaine", numericPrice: 10 },
         { type: "Mensuel", price: "35–40 DT / mois", numericPrice: 35 },
       ]
@@ -68,7 +67,6 @@ const AbonnementPage = () => {
       icon: Leaf,
       color: "border-purple-500",
       options: [
-        { type: "Quotidien", price: "4 DT / jour", numericPrice: 4 },
         { type: "Hebdomadaire", price: "18–20 DT / semaine", numericPrice: 18 },
         { type: "Mensuel", price: "70–75 DT / mois", numericPrice: 70 },
       ]
@@ -176,7 +174,7 @@ const AbonnementPage = () => {
                       {drinkCategory.options.map((option, idx) => {
                         const optionId = `${drinkCategory.id}-${option.type.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
                         const optionTitle = `${drinkCategory.title} - ${option.type}`;
-                        const optionPrice = option.numericPrice; // Use the pre-defined numeric price
+                        const optionPrice = option.numericPrice;
 
                         return (
                           <div key={idx} className="flex items-center justify-between text-lg">
