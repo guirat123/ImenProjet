@@ -11,6 +11,7 @@ interface BoxDetail {
   title: string;
   price: number;
   menu: string[];
+  image: string; // Ajout de la propriété image
 }
 
 interface Gamme {
@@ -26,8 +27,6 @@ interface Gamme {
 const BoxesPage = () => {
   const { addToCart } = useCart();
 
-  const placeholderImage = "/public/placeholder.svg"; // Generic placeholder image
-
   // Extrait le menu d'entrée pour l'afficher séparément en haut
   const entryMenuData: BoxDetail = {
     id: 'gamme1-entry-menu',
@@ -39,7 +38,8 @@ const BoxesPage = () => {
       "Salade verte",
       "Pommes de terre vapeur",
       "Banane"
-    ]
+    ],
+    image: "/public/placeholder.svg" // Image de remplacement pour le menu d'entrée
   };
 
   const gammes: Gamme[] = [
@@ -61,7 +61,8 @@ const BoxesPage = () => {
             "Pois chiches citronnés",
             "Huile d’olive (1 c. à café)",
             "Dessert : pomme ou orange"
-          ]
+          ],
+          image: "/public/placeholder.svg"
         },
         {
           id: 'gamme1-box2',
@@ -72,7 +73,8 @@ const BoxesPage = () => {
             "Thon naturel",
             "Petite portion de boulgour",
             "Dessert : quartier d’orange + datte"
-          ]
+          ],
+          image: "/public/placeholder.svg"
         },
         {
           id: 'gamme1-box3',
@@ -83,7 +85,8 @@ const BoxesPage = () => {
             "Blanc de poulet grillé",
             "Riz complet (petite portion)",
             "Dessert : mini-banane"
-          ]
+          ],
+          image: "/public/placeholder.svg"
         },
         {
           id: 'gamme1-box4',
@@ -94,7 +97,8 @@ const BoxesPage = () => {
             "Œuf dur",
             "Persil & citron",
             "Dessert : poire"
-          ]
+          ],
+          image: "/public/placeholder.svg"
         },
         {
           id: 'gamme1-box5',
@@ -105,7 +109,8 @@ const BoxesPage = () => {
             "Fromage frais allégé",
             "Huile d’olive",
             "Dessert : pomme verte"
-          ]
+          ],
+          image: "/public/placeholder.svg"
         },
         {
           id: 'gamme1-box6',
@@ -116,7 +121,8 @@ const BoxesPage = () => {
             "Œuf poché",
             "½ pain complet",
             "Dessert : orange"
-          ]
+          ],
+          image: "/public/placeholder.svg"
         },
       ],
     },
@@ -137,7 +143,8 @@ const BoxesPage = () => {
             "Poulet grillé",
             "Avocat (quelques tranches)",
             "Dessert : yaourt + fruits"
-          ]
+          ],
+          image: "/public/placeholder.svg"
         },
         {
           id: 'gamme2-box8',
@@ -148,7 +155,8 @@ const BoxesPage = () => {
             "Légumes vapeur",
             "Riz complet",
             "Dessert : pomme au four"
-          ]
+          ],
+          image: "/public/placeholder.svg"
         },
         {
           id: 'gamme2-box9',
@@ -159,7 +167,8 @@ const BoxesPage = () => {
             "Sauce yaourt–citron",
             "Pain complet",
             "Dessert : salade de fruits"
-          ]
+          ],
+          image: "/public/placeholder.svg"
         },
         {
           id: 'gamme2-box10',
@@ -170,7 +179,8 @@ const BoxesPage = () => {
             "Légumes sautés",
             "Fromage blanc",
             "Dessert : banane + cacao"
-          ]
+          ],
+          image: "/public/placeholder.svg"
         },
         {
           id: 'gamme2-box11',
@@ -181,7 +191,8 @@ const BoxesPage = () => {
             "Poulet & crudités",
             "Sauce houmous",
             "Dessert : fruit frais"
-          ]
+          ],
+          image: "/public/placeholder.svg"
         },
         {
           id: 'gamme2-box12',
@@ -192,7 +203,8 @@ const BoxesPage = () => {
             "Œuf + thon",
             "Huile d’olive",
             "Dessert : yaourt nature + dattes"
-          ]
+          ],
+          image: "/public/placeholder.svg"
         },
       ],
     },
@@ -213,7 +225,8 @@ const BoxesPage = () => {
             "Épinards sautés",
             "Quinoa",
             "Dessert : chia pudding"
-          ]
+          ],
+          image: "/public/placeholder.svg"
         },
         {
           id: 'gamme3-box14',
@@ -224,7 +237,8 @@ const BoxesPage = () => {
             "Salade avocat & graines",
             "Patate douce rôtie",
             "Dessert : brownie healthy"
-          ]
+          ],
+          image: "/public/placeholder.svg"
         },
         {
           id: 'gamme3-box15',
@@ -235,7 +249,8 @@ const BoxesPage = () => {
             "Légumes rôtis",
             "Boulgour",
             "Dessert : yaourt grec & miel"
-          ]
+          ],
+          image: "/public/placeholder.svg"
         },
         {
           id: 'gamme3-box16',
@@ -246,7 +261,8 @@ const BoxesPage = () => {
             "Salade verte croquante",
             "Riz basmati",
             "Dessert : mousse citron healthy"
-          ]
+          ],
+          image: "/public/placeholder.svg"
         },
         {
           id: 'gamme3-box17',
@@ -257,7 +273,8 @@ const BoxesPage = () => {
             "Lentilles & pois chiches",
             "Avocat",
             "Dessert : energy balls"
-          ]
+          ],
+          image: "/public/placeholder.svg"
         },
         {
           id: 'gamme3-box18',
@@ -268,7 +285,8 @@ const BoxesPage = () => {
             "Légumes grillés",
             "Quinoa",
             "Dessert : crumble pomme healthy"
-          ]
+          ],
+          image: "/public/placeholder.svg"
         },
       ],
     },
@@ -287,6 +305,7 @@ const BoxesPage = () => {
         {/* Menu d'entrée (hors box) - Affiché en haut */}
         <section className="mb-20">
           <Card key={entryMenuData.id} className="flex flex-col p-6 shadow-md hover:shadow-lg transition-shadow duration-300 border-t-4 border-blue-400">
+            <img src={entryMenuData.image} alt={entryMenuData.title} className="w-full h-48 object-cover rounded-t-md mb-4" />
             <CardHeader className="p-0 mb-4">
               <div className="flex items-center mb-2">
                 <ShoppingCart className="text-blue-400 mr-3" size={24} />
@@ -305,7 +324,7 @@ const BoxesPage = () => {
               <p className="text-xl font-bold text-green-700 mt-4">{entryMenuData.price.toFixed(2)} TND</p>
               <Button
                 className="mt-4 bg-green-600 hover:bg-green-700 text-white"
-                onClick={() => addToCart({ ...entryMenuData, image: placeholderImage })}
+                onClick={() => addToCart(entryMenuData)}
               >
                 <ShoppingCart className="mr-2 h-4 w-4" /> Ajouter au panier
               </Button>
@@ -332,6 +351,7 @@ const BoxesPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {gamme.boxes.map((box) => (
                 <Card key={box.id} className="flex flex-col p-6 shadow-md hover:shadow-lg transition-shadow duration-300 border-t-4 border-gray-200">
+                  <img src={box.image} alt={box.title} className="w-full h-48 object-cover rounded-t-md mb-4" />
                   <CardHeader className="p-0 mb-4">
                     <div className="flex items-center mb-2">
                       <ShoppingCart className="text-gray-500 mr-3" size={24} />
@@ -350,7 +370,7 @@ const BoxesPage = () => {
                     <p className="text-xl font-bold text-green-700 mt-4">{box.price.toFixed(2)} TND</p>
                     <Button
                       className="mt-4 bg-green-600 hover:bg-green-700 text-white"
-                      onClick={() => addToCart({ ...box, image: placeholderImage })}
+                      onClick={() => addToCart(box)}
                     >
                       <ShoppingCart className="mr-2 h-4 w-4" /> Ajouter au panier
                     </Button>
