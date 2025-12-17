@@ -39,7 +39,7 @@ const BoxesPage = () => {
       "Pommes de terre vapeur",
       "Banane"
     ],
-    image: "/images/Gemini_Generated_Image_mok7wxmok7wxmok7.png" // Image spécifique
+    image: "/images/Menu d’entrée (hors box).png" // Image spécifique mise à jour
   };
 
   const gammes: Gamme[] = [
