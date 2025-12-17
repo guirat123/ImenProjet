@@ -4,7 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Utensils, Clock, Wallet, GraduationCap } from 'lucide-react';
+import { Utensils, Clock, Wallet, GraduationCap, CalendarDays, Timer } from 'lucide-react';
 
 const questionnaireLink = "https://docs.google.com/forms/d/e/1FAIpQLSdVmNTt4rd7P962XuBAZ9DpkYCQOGqxmBuJ-vKw60YykVyHbw/viewform?fbclid=IwY2xjawOscw1leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA80Mzc2MjYzMTY5NzM3ODgAAR6Ew13-jhPKUxgiXwHtT6ZVITxRfN16MG5PsZJhnDdi2p9RXt0aBOePADQPbA_aem_YxKH51V4bD5QdCraCA_Axw";
 
@@ -96,6 +96,36 @@ const HomePage = () => {
                 <CardDescription className="text-gray-600">
                   Livraison facile et points de collecte pratiques directement sur votre campus.
                 </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Days & Hours Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-green-700 text-center mb-12">
+            JOURS & HORAIRES
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            <Card className="p-6 shadow-lg border-l-4 border-green-500">
+              <CardHeader className="flex flex-row items-center space-x-4 p-0 mb-4">
+                <CalendarDays className="text-green-500" size={36} />
+                <CardTitle className="text-2xl font-bold text-gray-800">Jours de Service</CardTitle>
+              </CardHeader>
+              <CardContent className="p-0 text-lg text-gray-700 leading-relaxed">
+                <p className="mb-2"><span className="font-semibold">Jours de travail :</span> Lundi → Vendredi</p>
+                <p><span className="font-semibold">Fermé :</span> Samedi & Dimanche</p>
+              </CardContent>
+            </Card>
+            <Card className="p-6 shadow-lg border-l-4 border-yellow-500">
+              <CardHeader className="flex flex-row items-center space-x-4 p-0 mb-4">
+                <Timer className="text-yellow-500" size={36} />
+                <CardTitle className="text-2xl font-bold text-gray-800">Horaires de Commande</CardTitle>
+              </CardHeader>
+              <CardContent className="p-0 text-lg text-gray-700 leading-relaxed">
+                <p><span className="font-semibold">Horaires commande :</span> 10h00 – 22h00</p>
               </CardContent>
             </Card>
           </div>
