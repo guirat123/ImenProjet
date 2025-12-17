@@ -34,12 +34,12 @@ const BoissonsHealthyPage = () => {
       icon: Leaf,
       color: "border-green-500",
       drinks: [
-        { id: 'citronnade-menthe', title: "Citronnade & menthe", price: 4.00, image: "/images/drink-placeholder.png" },
-        { id: 'the-vert-froid', title: "Thé vert froid maison", price: 3.00, image: "/images/drink-placeholder.png" },
-        { id: 'infusion-gingembre-citron', title: "Infusion gingembre–citron", price: 3.00, image: "/images/drink-placeholder.png" },
-        { id: 'jus-orange-frais', title: "Jus d’orange frais (sans sucre)", price: 5.00, image: "/images/drink-placeholder.png" },
-        { id: 'jus-grenade-dilue', title: "Jus de grenade dilué", price: 7.00, image: "/images/drink-placeholder.png" },
-        { id: 'lait-amande-nature', title: "Lait d’amande nature", price: 6.00, image: "/images/drink-placeholder.png" },
+        { id: 'citronnade-menthe', title: "Citronnade & menthe", price: 4.00, image: "/images/Citronnade & menthe.png" },
+        { id: 'the-vert-froid', title: "Thé vert froid maison", price: 3.00, image: "/images/Thé vert froid maison.png" },
+        { id: 'infusion-gingembre-citron', title: "Infusion gingembre–citron", price: 3.00, image: "/images/Infusion gingembre–citron.png" },
+        { id: 'jus-orange-frais', title: "Jus d’orange frais (sans sucre)", price: 5.00, image: "/images/Jus d’orange frais (sans sucre).png" },
+        { id: 'jus-grenade-dilue', title: "Jus de grenade dilué", price: 7.00, image: "/images/Jus de grenade dilué.png" },
+        { id: 'lait-amande-nature', title: "Lait d’amande nature", price: 6.00, image: "/images/Lait d’amande nature.png" },
       ],
     },
     {
@@ -49,12 +49,12 @@ const BoissonsHealthyPage = () => {
       icon: CupSoda,
       color: "border-yellow-500",
       drinks: [
-        { id: 'smoothie-banane-datte', title: "Smoothie banane–datte–lait d’amande", price: 11.00, image: "/images/drink-placeholder.png" },
-        { id: 'smoothie-fraise-yaourt', title: "Smoothie fraise–yaourt grec", price: 10.00, image: "/images/drink-placeholder.png" },
-        { id: 'smoothie-vert', title: "Smoothie vert (épinard–pomme–citron)", price: 11.00, image: "/images/drink-placeholder.png" },
-        { id: 'protein-shake-cacao', title: "Protein shake cacao–banane", price: 12.00, image: "/images/drink-placeholder.png" },
-        { id: 'smoothie-mangue-chia', title: "Smoothie mangue–chia", price: 13.00, image: "/images/drink-placeholder.png" },
-        { id: 'shake-vanille-avoine', title: "Shake vanille–avoine–protéines", price: 10.00, image: "/images/drink-placeholder.png" },
+        { id: 'smoothie-banane-datte', title: "Smoothie banane–datte–lait d’amande", price: 11.00, image: "/images/Smoothie banane–datte–lait d’amande.png" },
+        { id: 'smoothie-fraise-yaourt', title: "Smoothie fraise–yaourt grec", price: 10.00, image: "/images/Smoothie fraise–yaourt grec.png" },
+        { id: 'smoothie-vert', title: "Smoothie vert (épinard–pomme–citron)", price: 11.00, image: "/images/Smoothie vert (épinard–pomme–citron).png" },
+        { id: 'protein-shake-cacao', title: "Protein shake cacao–banane", price: 12.00, image: "/images/Shake vanille–avoine–protéines.png" }, // Using a suitable image
+        { id: 'smoothie-mangue-chia', title: "Smoothie mangue–chia", price: 13.00, image: "/images/Smoothie mangue–chia.png" },
+        { id: 'shake-vanille-avoine', title: "Shake vanille–avoine–protéines", price: 10.00, image: "/images/Shake vanille–avoine–protéines.png" },
       ],
     },
   ];
