@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { useCart } from '@/context/CartContext';
 
 const AbonnementPage = () => {
-  const { addToCart } = useCart();
+  const { addToCart, cart } = useCart();
 
   // Helper to parse price from string like "30–32 DT" to a number (taking the lower bound)
   const parsePrice = (priceString: string): number => {
@@ -73,6 +73,9 @@ const AbonnementPage = () => {
     }
   ];
 
+  // Check if any subscription is already in the cart
+  const isAnySubscriptionInCart = cart.some(item => item.id.startsWith('gamme'));
+
   return (
     <div className="bg-gray-50 text-gray-800 py-12 md:py-16">
       <div className="container mx-auto px-4">
@@ -111,6 +114,9 @@ const AbonnementPage = () => {
                   const subscriptionId = `${abonnement.gamme.toLowerCase().replace(/[^a-z0-9]/g, '-')}-${detail.type.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
                   const subscriptionTitle = `${abonnement.gamme} - ${detail.type}`;
                   const subscriptionPrice = parsePrice(detail.price);
+                  
+                  const isThisSubscriptionInCart = cart.some(item => item.id === subscriptionId);
+                  const isDisabled = isAnySubscriptionInCart && !isThisSubscriptionInCart;
 
                   return (
                     <Card key={idx} className="p-6 shadow-md hover:shadow-lg transition-shadow duration-300 border-t-4 border-gray-200">
@@ -132,8 +138,10 @@ const AbonnementPage = () => {
                         <Button
                           className="mt-6 w-full bg-green-600 hover:bg-green-700 text-white"
                           onClick={() => addToCart({ id: subscriptionId, title: subscriptionTitle, price: subscriptionPrice })}
+                          disabled={isDisabled || isThisSubscriptionInCart}
                         >
-                          <ShoppingCart className="mr-2 h-4 w-4" /> Ajouter au panier
+                          <ShoppingCart className="mr-2 h-4 w-4" /> 
+                          {isThisSubscriptionInCart ? "Ajouté" : "Ajouter au panier"}
                         </Button>
                       </CardContent>
                     </Card>
@@ -175,6 +183,9 @@ const AbonnementPage = () => {
                         const optionId = `${drinkCategory.id}-${option.type.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
                         const optionTitle = `${drinkCategory.title} - ${option.type}`;
                         const optionPrice = option.numericPrice;
+                        
+                        // Drink options can be added independently of box subscriptions
+                        const isThisDrinkOptionInCart = cart.some(item => item.id === optionId);
 
                         return (
                           <div key={idx} className="flex items-center justify-between text-lg">
@@ -185,8 +196,10 @@ const AbonnementPage = () => {
                             <Button
                               className="ml-4 bg-green-600 hover:bg-green-700 text-white text-sm py-2 px-4"
                               onClick={() => addToCart({ id: optionId, title: optionTitle, price: optionPrice })}
+                              disabled={isThisDrinkOptionInCart} // Disable if this specific drink option is already in cart
                             >
-                              <ShoppingCart className="mr-2 h-4 w-4" /> Ajouter
+                              <ShoppingCart className="mr-2 h-4 w-4" /> 
+                              {isThisDrinkOptionInCart ? "Ajouté" : "Ajouter"}
                             </Button>
                           </div>
                         );
