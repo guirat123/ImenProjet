@@ -9,6 +9,7 @@ import AboutPage from "./pages/AboutPage";
 import BoxesPage from "./pages/BoxesPage";
 import NutritionPage from "./pages/NutritionPage";
 import CartPage from "./pages/CartPage"; // Import CartPage
+import BoissonsHealthyPage from "./pages/BoissonsHealthyPage"; // Import BoissonsHealthyPage
 import NotFound from "./pages/NotFound";
 import { CartProvider } from "./context/CartContext"; // Import CartProvider
 
@@ -28,6 +29,7 @@ const App = () => (
               <Route path="/boxes" element={<BoxesPage />} />
               <Route path="/nutrition" element={<NutritionPage />} />
               <Route path="/cart" element={<CartPage />} /> {/* Add CartPage route */}
+              <Route path="/boissons-healthy" element={<BoissonsHealthyPage />} /> {/* Add BoissonsHealthyPage route */}
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

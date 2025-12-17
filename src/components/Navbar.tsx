@@ -7,7 +7,7 @@ import { Menu, X, ShoppingCart } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useCart } from '@/context/CartContext'; // Import useCart
 
-const questionnaireLink = "https://docs.google.com/forms/d/e/1FAIpQLSdVmNTt4rd7P962XuBAZ9DpkYCQOGqxmBuJ-vKw60YykVyHbw/viewform?fbclid=IwY2xjawOscw1leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA80Mzc2MjYzMTY5NzM3ODgAAR6Ew13-jhPKUxgiXwHtT6ZVITxRfN16MG5PsZJhnDdi2p9RXt0aBOePADQPbA_aem_YxKH51V4bD5QdCraCA_Axw";
+const questionnaireLink = "https://docs.google.com/forms/d/e/1FAIpQLSdVmNTt4rd7P962XuBAZ9DpkYCQOGqxmBuJ-vKw60YykVyHbw/viewform?fbclid=IwY2xjawOscw1leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA80Mzc2MjYzMTY5NzM3ODgAAR6Ew13-jhPKUxgiXwHtT6ZVITxRfN16MG5PsZJhnDdi2p9RXt0aBOePADQPbA_aem_YxKH51V4bD5QzCraCA_Axw";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -50,6 +50,9 @@ const Navbar = () => {
             <Link to="/boxes" className="text-gray-700 hover:text-green-700 font-medium">
               Nos Box
             </Link>
+            <Link to="/boissons-healthy" className="text-gray-700 hover:text-green-700 font-medium">
+              Boissons Healthy
+            </Link>
             <Link to="/nutrition" className="text-gray-700 hover:text-green-700 font-medium">
               Nutrition
             </Link>
@@ -81,6 +84,9 @@ const Navbar = () => {
             </Link>
             <Link to="/boxes" className="text-gray-700 hover:text-green-700 font-medium" onClick={toggleMenu}>
               Nos Box
+            </Link>
+            <Link to="/boissons-healthy" className="text-gray-700 hover:text-green-700 font-medium" onClick={toggleMenu}>
+              Boissons Healthy
             </Link>
             <Link to="/nutrition" className="text-gray-700 hover:text-green-700 font-medium" onClick={toggleMenu}>
               Nutrition
