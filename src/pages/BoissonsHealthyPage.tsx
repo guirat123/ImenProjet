@@ -3,12 +3,15 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Leaf, CupSoda } from 'lucide-react';
+import { Leaf, CupSoda, ShoppingCart } from 'lucide-react'; // Import ShoppingCart icon
+import { Button } from '@/components/ui/button'; // Import Button component
+import { useCart } from '@/context/CartContext'; // Import useCart hook
 
 interface DrinkItem {
-  name: string;
+  id: string; // Added id
+  title: string; // Changed name to title
   price: number;
-  image: string; // Ajout de la propriété image
+  image: string;
 }
 
 interface DrinkCategory {
@@ -21,6 +24,8 @@ interface DrinkCategory {
 }
 
 const BoissonsHealthyPage = () => {
+  const { addToCart } = useCart(); // Use the addToCart function
+
   const drinkCategories: DrinkCategory[] = [
     {
       id: 'classiques-healthy',
@@ -29,12 +34,12 @@ const BoissonsHealthyPage = () => {
       icon: Leaf,
       color: "border-green-500",
       drinks: [
-        { name: "Citronnade & menthe", price: 4.00, image: "/images/drink-placeholder.png" },
-        { name: "Thé vert froid maison", price: 3.00, image: "/images/drink-placeholder.png" },
-        { name: "Infusion gingembre–citron", price: 3.00, image: "/images/drink-placeholder.png" },
-        { name: "Jus d’orange frais (sans sucre)", price: 5.00, image: "/images/drink-placeholder.png" },
-        { name: "Jus de grenade dilué", price: 7.00, image: "/images/drink-placeholder.png" },
-        { name: "Lait d’amande nature", price: 6.00, image: "/images/drink-placeholder.png" },
+        { id: 'citronnade-menthe', title: "Citronnade & menthe", price: 4.00, image: "/images/drink-placeholder.png" },
+        { id: 'the-vert-froid', title: "Thé vert froid maison", price: 3.00, image: "/images/drink-placeholder.png" },
+        { id: 'infusion-gingembre-citron', title: "Infusion gingembre–citron", price: 3.00, image: "/images/drink-placeholder.png" },
+        { id: 'jus-orange-frais', title: "Jus d’orange frais (sans sucre)", price: 5.00, image: "/images/drink-placeholder.png" },
+        { id: 'jus-grenade-dilue', title: "Jus de grenade dilué", price: 7.00, image: "/images/drink-placeholder.png" },
+        { id: 'lait-amande-nature', title: "Lait d’amande nature", price: 6.00, image: "/images/drink-placeholder.png" },
       ],
     },
     {
@@ -44,12 +49,12 @@ const BoissonsHealthyPage = () => {
       icon: CupSoda,
       color: "border-yellow-500",
       drinks: [
-        { name: "Smoothie banane–datte–lait d’amande", price: 11.00, image: "/images/drink-placeholder.png" },
-        { name: "Smoothie fraise–yaourt grec", price: 10.00, image: "/images/drink-placeholder.png" },
-        { name: "Smoothie vert (épinard–pomme–citron)", price: 11.00, image: "/images/drink-placeholder.png" },
-        { name: "Protein shake cacao–banane", price: 12.00, image: "/images/drink-placeholder.png" },
-        { name: "Smoothie mangue–chia", price: 13.00, image: "/images/drink-placeholder.png" },
-        { name: "Shake vanille–avoine–protéines", price: 10.00, image: "/images/drink-placeholder.png" },
+        { id: 'smoothie-banane-datte', title: "Smoothie banane–datte–lait d’amande", price: 11.00, image: "/images/drink-placeholder.png" },
+        { id: 'smoothie-fraise-yaourt', title: "Smoothie fraise–yaourt grec", price: 10.00, image: "/images/drink-placeholder.png" },
+        { id: 'smoothie-vert', title: "Smoothie vert (épinard–pomme–citron)", price: 11.00, image: "/images/drink-placeholder.png" },
+        { id: 'protein-shake-cacao', title: "Protein shake cacao–banane", price: 12.00, image: "/images/drink-placeholder.png" },
+        { id: 'smoothie-mangue-chia', title: "Smoothie mangue–chia", price: 13.00, image: "/images/drink-placeholder.png" },
+        { id: 'shake-vanille-avoine', title: "Shake vanille–avoine–protéines", price: 10.00, image: "/images/drink-placeholder.png" },
       ],
     },
   ];
@@ -85,16 +90,25 @@ const BoissonsHealthyPage = () => {
                     <TableRow className="bg-green-100">
                       <TableHead className="text-left text-green-800 font-semibold py-3 px-4">Boisson</TableHead>
                       <TableHead className="text-right text-green-800 font-semibold py-3 px-4">Prix</TableHead>
+                      <TableHead className="text-center text-green-800 font-semibold py-3 px-4">Action</TableHead> {/* New header for action button */}
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {category.drinks.map((drink, index) => (
                       <TableRow key={index} className="border-b last:border-b-0 hover:bg-gray-50">
                         <TableCell className="py-3 px-4 text-gray-700 flex items-center">
-                          <img src={drink.image} alt={drink.name} className="w-12 h-12 object-cover rounded-md mr-4" />
-                          {drink.name}
+                          <img src={drink.image} alt={drink.title} className="w-12 h-12 object-cover rounded-md mr-4" />
+                          {drink.title}
                         </TableCell>
                         <TableCell className="py-3 px-4 text-right font-medium text-green-700">{drink.price.toFixed(2)} TND</TableCell>
+                        <TableCell className="py-3 px-4 text-center"> {/* New cell for the button */}
+                          <Button
+                            className="bg-green-600 hover:bg-green-700 text-white"
+                            onClick={() => addToCart(drink)}
+                          >
+                            <ShoppingCart className="mr-2 h-4 w-4" /> Ajouter
+                          </Button>
+                        </TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
