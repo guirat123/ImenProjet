@@ -298,34 +298,6 @@ const BoxesPage = () => {
               </CardContent>
             </Card>
 
-            {gamme.entryMenu && (
-              <Card key={gamme.entryMenu.id} className="flex flex-col p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mb-8 border-t-4 border-blue-400">
-                <CardHeader className="p-0 mb-4">
-                  <div className="flex items-center mb-2">
-                    <ShoppingCart className="text-blue-400 mr-3" size={24} />
-                    <CardTitle className="text-xl font-bold text-gray-800">{gamme.entryMenu.title}</CardTitle>
-                  </div>
-                  <CardDescription className="text-gray-600 text-base">
-                    Un menu d'entrée spécial, parfait pour un repas léger.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="p-0">
-                  <ul className="list-disc list-inside text-gray-700 space-y-1 mb-4">
-                    {gamme.entryMenu.menu.map((item, index) => (
-                      <li key={index}>{item}</li>
-                    ))}
-                  </ul>
-                  <p className="text-xl font-bold text-green-700 mt-4">{gamme.entryMenu.price.toFixed(2)} TND</p>
-                  <Button
-                    className="mt-4 bg-green-600 hover:bg-green-700 text-white"
-                    onClick={() => addToCart({ ...gamme.entryMenu!, image: placeholderImage })}
-                  >
-                    <ShoppingCart className="mr-2 h-4 w-4" /> Ajouter au panier
-                  </Button>
-                </CardContent>
-              </Card>
-            )}
-
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {gamme.boxes.map((box) => (
                 <Card key={box.id} className="flex flex-col p-6 shadow-md hover:shadow-lg transition-shadow duration-300 border-t-4 border-gray-200">
@@ -355,6 +327,34 @@ const BoxesPage = () => {
                 </Card>
               ))}
             </div>
+
+            {gamme.entryMenu && (
+              <Card key={gamme.entryMenu.id} className="flex flex-col p-6 shadow-md hover:shadow-lg transition-shadow duration-300 mt-8 border-t-4 border-blue-400">
+                <CardHeader className="p-0 mb-4">
+                  <div className="flex items-center mb-2">
+                    <ShoppingCart className="text-blue-400 mr-3" size={24} />
+                    <CardTitle className="text-xl font-bold text-gray-800">{gamme.entryMenu.title}</CardTitle>
+                  </div>
+                  <CardDescription className="text-gray-600 text-base">
+                    Un menu d'entrée spécial, parfait pour un repas léger.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="p-0">
+                  <ul className="list-disc list-inside text-gray-700 space-y-1 mb-4">
+                    {gamme.entryMenu.menu.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                  <p className="text-xl font-bold text-green-700 mt-4">{gamme.entryMenu.price.toFixed(2)} TND</p>
+                  <Button
+                    className="mt-4 bg-green-600 hover:bg-green-700 text-white"
+                    onClick={() => addToCart({ ...gamme.entryMenu!, image: placeholderImage })}
+                  >
+                    <ShoppingCart className="mr-2 h-4 w-4" /> Ajouter au panier
+                  </Button>
+                </CardContent>
+              </Card>
+            )}
           </section>
         ))}
       </div>
