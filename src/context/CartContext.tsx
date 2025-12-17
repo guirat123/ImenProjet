@@ -29,17 +29,31 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
 
+  const isSubscriptionItem = (itemId: string) => itemId.startsWith('gamme') || itemId.startsWith('boisson-');
+
   const addToCart = (item: BoxItem) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((cartItem) => cartItem.id === item.id);
-      if (existingItem) {
-        toast.success(`Quantité de ${item.title} mise à jour dans le panier !`);
-        return prevCart.map((cartItem) =>
-          cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
-        );
+
+      if (isSubscriptionItem(item.id)) {
+        if (existingItem) {
+          toast.info(`${item.title} est déjà dans votre panier.`);
+          return prevCart; // Do not increment quantity for subscriptions
+        } else {
+          toast.success(`${item.title} ajouté au panier !`);
+          return [...prevCart, { ...item, quantity: 1 }]; // Add with quantity 1
+        }
       } else {
-        toast.success(`${item.title} ajouté au panier !`);
-        return [...prevCart, { ...item, quantity: 1 }];
+        // Existing logic for regular box items
+        if (existingItem) {
+          toast.success(`Quantité de ${item.title} mise à jour dans le panier !`);
+          return prevCart.map((cartItem) =>
+            cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+          );
+        } else {
+          toast.success(`${item.title} ajouté au panier !`);
+          return [...prevCart, { ...item, quantity: 1 }];
+        }
       }
     });
   };
@@ -56,12 +70,22 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const updateQuantity = (itemId: string, quantity: number) => {
     setCart((prevCart) => {
-      if (quantity <= 0) {
-        return prevCart.filter((item) => item.id !== itemId);
+      if (isSubscriptionItem(itemId)) {
+        // For subscription items, only allow removal (quantity 0)
+        if (quantity <= 0) {
+          return prevCart.filter((item) => item.id !== itemId);
+        }
+        // Otherwise, do not allow quantity changes for subscriptions
+        return prevCart;
+      } else {
+        // Existing logic for regular box items
+        if (quantity <= 0) {
+          return prevCart.filter((item) => item.id !== itemId);
+        }
+        return prevCart.map((cartItem) =>
+          cartItem.id === itemId ? { ...cartItem, quantity } : cartItem
+        );
       }
-      return prevCart.map((cartItem) =>
-        cartItem.id === itemId ? { ...cartItem, quantity } : cartItem
-      );
     });
   };
 

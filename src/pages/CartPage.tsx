@@ -15,6 +15,8 @@ const CartPage = () => {
   const [showInvoiceDialog, setShowInvoiceDialog] = useState(false);
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
+  const isSubscriptionItem = (itemId: string) => itemId.startsWith('gamme') || itemId.startsWith('boisson-');
+
   const generateInvoicePdf = () => {
     const doc = new jsPDF();
     const date = format(new Date(), 'dd/MM/yyyy');
@@ -107,23 +109,29 @@ const CartPage = () => {
                   <h3 className="text-xl font-semibold text-green-700">{item.title}</h3>
                   <p className="text-gray-600">{item.price.toFixed(2)} TND / unité</p>
                   <div className="flex items-center mt-2 space-x-2">
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      className="h-8 w-8"
-                    >
-                      <MinusCircle className="h-4 w-4" />
-                    </Button>
-                    <span className="text-lg font-medium">{item.quantity}</span>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      className="h-8 w-8"
-                    >
-                      <PlusCircle className="h-4 w-4" />
-                    </Button>
+                    {isSubscriptionItem(item.id) ? (
+                      <span className="text-lg font-medium">1</span>
+                    ) : (
+                      <>
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                          className="h-8 w-8"
+                        >
+                          <MinusCircle className="h-4 w-4" />
+                        </Button>
+                        <span className="text-lg font-medium">{item.quantity}</span>
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                          className="h-8 w-8"
+                        >
+                          <PlusCircle className="h-4 w-4" />
+                        </Button>
+                      </>
+                    )}
                     <Button
                       variant="destructive"
                       size="icon"
