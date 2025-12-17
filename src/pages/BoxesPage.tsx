@@ -39,7 +39,7 @@ const BoxesPage = () => {
       "Pommes de terre vapeur",
       "Banane"
     ],
-    image: "/public/placeholder.svg" // Image de remplacement pour le menu d'entrée
+    image: "/pasted-image-2025-12-17T05-27-22-625Z.png" // Image spécifique
   };
 
   const gammes: Gamme[] = [
@@ -62,7 +62,7 @@ const BoxesPage = () => {
             "Huile d’olive (1 c. à café)",
             "Dessert : pomme ou orange"
           ],
-          image: "/public/placeholder.svg"
+          image: "/pasted-image-2025-12-17T05-27-38-992Z.png"
         },
         {
           id: 'gamme1-box2',
@@ -74,7 +74,7 @@ const BoxesPage = () => {
             "Petite portion de boulgour",
             "Dessert : quartier d’orange + datte"
           ],
-          image: "/public/placeholder.svg"
+          image: "/pasted-image-2025-12-17T05-27-58-641Z.png"
         },
         {
           id: 'gamme1-box3',
@@ -86,7 +86,7 @@ const BoxesPage = () => {
             "Riz complet (petite portion)",
             "Dessert : mini-banane"
           ],
-          image: "/public/placeholder.svg"
+          image: "/pasted-image-2025-12-17T05-28-16-916Z.png"
         },
         {
           id: 'gamme1-box4',
@@ -98,7 +98,7 @@ const BoxesPage = () => {
             "Persil & citron",
             "Dessert : poire"
           ],
-          image: "/public/placeholder.svg"
+          image: "/pasted-image-2025-12-17T05-28-36-599Z.png"
         },
         {
           id: 'gamme1-box5',
@@ -110,7 +110,7 @@ const BoxesPage = () => {
             "Huile d’olive",
             "Dessert : pomme verte"
           ],
-          image: "/public/placeholder.svg"
+          image: "/pasted-image-2025-12-17T05-28-55-869Z.png"
         },
         {
           id: 'gamme1-box6',
@@ -122,7 +122,7 @@ const BoxesPage = () => {
             "½ pain complet",
             "Dessert : orange"
           ],
-          image: "/public/placeholder.svg"
+          image: "/pasted-image-2025-12-17T05-29-13-817Z.png"
         },
       ],
     },
@@ -144,7 +144,7 @@ const BoxesPage = () => {
             "Avocat (quelques tranches)",
             "Dessert : yaourt + fruits"
           ],
-          image: "/public/placeholder.svg"
+          image: "/pasted-image-2025-12-17T05-29-31-455Z.png"
         },
         {
           id: 'gamme2-box8',
@@ -156,7 +156,7 @@ const BoxesPage = () => {
             "Riz complet",
             "Dessert : pomme au four"
           ],
-          image: "/public/placeholder.svg"
+          image: "/pasted-image-2025-12-17T05-29-48-971Z.png"
         },
         {
           id: 'gamme2-box9',
@@ -168,7 +168,7 @@ const BoxesPage = () => {
             "Pain complet",
             "Dessert : salade de fruits"
           ],
-          image: "/public/placeholder.svg"
+          image: "/pasted-image-2025-12-17T05-30-08-867Z.png"
         },
         {
           id: 'gamme2-box10',
@@ -180,7 +180,7 @@ const BoxesPage = () => {
             "Fromage blanc",
             "Dessert : banane + cacao"
           ],
-          image: "/public/placeholder.svg"
+          image: "/pasted-image-2025-12-17T05-30-35-527Z.png"
         },
         {
           id: 'gamme2-box11',
@@ -192,7 +192,7 @@ const BoxesPage = () => {
             "Sauce houmous",
             "Dessert : fruit frais"
           ],
-          image: "/public/placeholder.svg"
+          image: "/pasted-image-2025-12-17T05-30-49-946Z.png"
         },
         {
           id: 'gamme2-box12',
@@ -204,7 +204,7 @@ const BoxesPage = () => {
             "Huile d’olive",
             "Dessert : yaourt nature + dattes"
           ],
-          image: "/public/placeholder.svg"
+          image: "/pasted-image-2025-12-17T05-31-17-805Z.png"
         },
       ],
     },
@@ -226,7 +226,7 @@ const BoxesPage = () => {
             "Quinoa",
             "Dessert : chia pudding"
           ],
-          image: "/public/placeholder.svg"
+          image: "/pasted-image-2025-12-17T05-32-03-168Z.png"
         },
         {
           id: 'gamme3-box14',
@@ -238,7 +238,7 @@ const BoxesPage = () => {
             "Patate douce rôtie",
             "Dessert : brownie healthy"
           ],
-          image: "/public/placeholder.svg"
+          image: "/pasted-image-2025-12-17T05-32-27-459Z.png"
         },
         {
           id: 'gamme3-box15',
@@ -250,7 +250,7 @@ const BoxesPage = () => {
             "Boulgour",
             "Dessert : yaourt grec & miel"
           ],
-          image: "/public/placeholder.svg"
+          image: "/pasted-image-2025-12-17T05-32-48-259Z.png"
         },
         {
           id: 'gamme3-box16',
@@ -262,7 +262,7 @@ const BoxesPage = () => {
             "Riz basmati",
             "Dessert : mousse citron healthy"
           ],
-          image: "/public/placeholder.svg"
+          image: "/pasted-image-2025-12-17T05-33-03-016Z.png"
         },
         {
           id: 'gamme3-box17',
@@ -274,7 +274,7 @@ const BoxesPage = () => {
             "Avocat",
             "Dessert : energy balls"
           ],
-          image: "/public/placeholder.svg"
+          image: "/pasted-image-2025-12-17T05-33-20-404Z.png"
         },
         {
           id: 'gamme3-box18',
@@ -286,7 +286,7 @@ const BoxesPage = () => {
             "Quinoa",
             "Dessert : crumble pomme healthy"
           ],
-          image: "/public/placeholder.svg"
+          image: "/pasted-image-2025-12-17T05-33-39-021Z.png"
         },
       ],
     },
