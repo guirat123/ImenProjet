@@ -3,11 +3,12 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Leaf, CupSoda } from 'lucide-react'; // Changed Blender to CupSoda
+import { Leaf, CupSoda } from 'lucide-react';
 
 interface DrinkItem {
   name: string;
   price: number;
+  image: string; // Ajout de la propriété image
 }
 
 interface DrinkCategory {
@@ -28,27 +29,27 @@ const BoissonsHealthyPage = () => {
       icon: Leaf,
       color: "border-green-500",
       drinks: [
-        { name: "Citronnade & menthe", price: 4.00 },
-        { name: "Thé vert froid maison", price: 3.00 },
-        { name: "Infusion gingembre–citron", price: 3.00 },
-        { name: "Jus d’orange frais (sans sucre)", price: 5.00 },
-        { name: "Jus de grenade dilué", price: 7.00 },
-        { name: "Lait d’amande nature", price: 6.00 },
+        { name: "Citronnade & menthe", price: 4.00, image: "/images/drink-placeholder.png" },
+        { name: "Thé vert froid maison", price: 3.00, image: "/images/drink-placeholder.png" },
+        { name: "Infusion gingembre–citron", price: 3.00, image: "/images/drink-placeholder.png" },
+        { name: "Jus d’orange frais (sans sucre)", price: 5.00, image: "/images/drink-placeholder.png" },
+        { name: "Jus de grenade dilué", price: 7.00, image: "/images/drink-placeholder.png" },
+        { name: "Lait d’amande nature", price: 6.00, image: "/images/drink-placeholder.png" },
       ],
     },
     {
       id: 'smoothies-protein-drinks',
       title: "Smoothies & Protein Drinks",
       description: "Des boissons énergisantes et riches en protéines, parfaites pour le sport ou un coup de boost.",
-      icon: CupSoda, // Changed Blender to CupSoda
+      icon: CupSoda,
       color: "border-yellow-500",
       drinks: [
-        { name: "Smoothie banane–datte–lait d’amande", price: 11.00 },
-        { name: "Smoothie fraise–yaourt grec", price: 10.00 },
-        { name: "Smoothie vert (épinard–pomme–citron)", price: 11.00 },
-        { name: "Protein shake cacao–banane", price: 12.00 },
-        { name: "Smoothie mangue–chia", price: 13.00 },
-        { name: "Shake vanille–avoine–protéines", price: 10.00 },
+        { name: "Smoothie banane–datte–lait d’amande", price: 11.00, image: "/images/drink-placeholder.png" },
+        { name: "Smoothie fraise–yaourt grec", price: 10.00, image: "/images/drink-placeholder.png" },
+        { name: "Smoothie vert (épinard–pomme–citron)", price: 11.00, image: "/images/drink-placeholder.png" },
+        { name: "Protein shake cacao–banane", price: 12.00, image: "/images/drink-placeholder.png" },
+        { name: "Smoothie mangue–chia", price: 13.00, image: "/images/drink-placeholder.png" },
+        { name: "Shake vanille–avoine–protéines", price: 10.00, image: "/images/drink-placeholder.png" },
       ],
     },
   ];
@@ -89,7 +90,10 @@ const BoissonsHealthyPage = () => {
                   <TableBody>
                     {category.drinks.map((drink, index) => (
                       <TableRow key={index} className="border-b last:border-b-0 hover:bg-gray-50">
-                        <TableCell className="py-3 px-4 text-gray-700">{drink.name}</TableCell>
+                        <TableCell className="py-3 px-4 text-gray-700 flex items-center">
+                          <img src={drink.image} alt={drink.name} className="w-12 h-12 object-cover rounded-md mr-4" />
+                          {drink.name}
+                        </TableCell>
                         <TableCell className="py-3 px-4 text-right font-medium text-green-700">{drink.price.toFixed(2)} TND</TableCell>
                       </TableRow>
                     ))}
