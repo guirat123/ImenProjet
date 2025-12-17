@@ -3,7 +3,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Leaf, Smoothie } from 'lucide-react';
+import { Leaf, Milkshake } from 'lucide-react'; // Changed Smoothie to Milkshake
 
 interface DrinkItem {
   name: string;
@@ -40,7 +40,7 @@ const BoissonsHealthyPage = () => {
       id: 'smoothies-protein-drinks',
       title: "Smoothies & Protein Drinks",
       description: "Des boissons énergisantes et riches en protéines, parfaites pour le sport ou un coup de boost.",
-      icon: Smoothie,
+      icon: Milkshake, // Changed Smoothie to Milkshake
       color: "border-yellow-500",
       drinks: [
         { name: "Smoothie banane–datte–lait d’amande", price: 11.00 },
