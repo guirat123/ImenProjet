@@ -7,9 +7,10 @@ import Layout from "./components/Layout";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import BoxesPage from "./pages/BoxesPage";
-import AbonnementPage from "./pages/AbonnementPage"; // Import AbonnementPage
+import AbonnementPage from "./pages/AbonnementPage";
 import CartPage from "./pages/CartPage";
 import BoissonsHealthyPage from "./pages/BoissonsHealthyPage";
+import OffersPage from "./pages/OffersPage"; // Import OffersPage
 import NotFound from "./pages/NotFound";
 import { CartProvider } from "./context/CartContext";
 
@@ -27,9 +28,10 @@ const App = () => (
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/boxes" element={<BoxesPage />} />
-              <Route path="/abonnement" element={<AbonnementPage />} /> {/* Add AbonnementPage route */}
+              <Route path="/abonnement" element={<AbonnementPage />} />
               <Route path="/cart" element={<CartPage />} />
               <Route path="/boissons-healthy" element={<BoissonsHealthyPage />} />
+              <Route path="/offers" element={<OffersPage />} /> {/* Add OffersPage route */}
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
